@@ -45,7 +45,7 @@ for i in range(width*height):
         block = names[np.where(distances==np.amin(distances))[0][0]] # Algorithm I didn't create; [0][0] gets the index from the numpy array and uses it for names[]
         knownClrs[str(clr)] = block # This color was calculated for the first time; store it for future reference
     keyboard.press_and_release("/") # Start writing a command in Minecraft
-    sleep(0.05) # Without this, Minecraft writes a double slash
-    keyboard.write(f"setblock {width-1-i%width} 1 {int(i/width)+260} {block}") # Write the command using the current positioning and block
+    sleep(0.05) # Without this, Minecraft writes a double slash or doesn't write the command at all
+    keyboard.write(f"setblock {width-1-i%width} 1 {int(i/width)} {block}") # Write the command using the current positioning and block
     keyboard.press_and_release("Enter") # Run the command
-    sleep(0.05) # Quick cooldown; I have not tested the program without this.
+    sleep(0.001)# Quick cooldown; Minecraft will skip several blocks without this or not run the command at all; may require increasing if Minecraft is still skipping blocks
