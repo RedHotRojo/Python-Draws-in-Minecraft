@@ -1,4 +1,5 @@
 # Please open an Issue if you wish for this file to be heavily commented
+# Thank you to u/Wkitor for the amazing idea!
 from PIL import Image
 import numpy as np
 import ast
